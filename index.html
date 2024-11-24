@@ -16,7 +16,7 @@
         }
 
         .shown {
-            display: block;
+            display: block; 
         }
 
         .output .coin { display: block; }
@@ -29,12 +29,24 @@
     <img class='coin' id='dime' href='https://upload.wikimedia.org/wikipedia/commons/3/3c/Dime_Obverse_13.png'>
     <img class='coin' id='quarter' href='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/2006_Quarter_Proof.png/609px-2006_Quarter_Proof.png'>
     <img class='coin' id='nickel' href='https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/US_Nickel_2013_Rev.png/768px-US_Nickel_2013_Rev.png'>
+    <img class='coin' id='loonie' href='https://canadiancoinnews.com/wp-content/uploads/sites/2/2019/06/loonie.png'>
+    <img class='coin' id='peso' href='https://upload.wikimedia.org/wikipedia/commons/3/37/Philippines_New_Generation_1_peso_coin_obverse.png'>
+    <img class='coin' id='dollar' href='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Presidential_dollar_coin_reverse.png/763px-Presidential_dollar_coin_reverse.png'>
+    <img class='coin' id='won' href='https://www.florinus.lt/resized/94f23980cf4509dcd16d9458ec2d868c-500x500-transparent/2015-north-korea-accipiter-gentilis-20-won-silver-coin-.png'>
+    <img class='coin' id='franc' href='https://upload.wikimedia.org/wikipedia/commons/3/37/20_Belgian_Franc_Leopold_II_gold_coin.png'>
+    <img class='coin' id='bitcoin' href='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png'>
     <h3>
         I want to visualize <input class='vis' placeholder='10.00' aria-invalid='false' value='10.00'> US dollars in <select id="currency">
-            <option value="penny">pennies</option>
-            <option value="dime">dimes</option>
-            <option value="quarter">quarters</option>
-            <option value="nickel">nickels</option>
+            <option value="penny">[us] pennies</option>
+            <option value="dime">[us] dimes</option>
+            <option value="quarter">[us] quarters</option>
+            <option value="nickel">[us] nickels</option>
+            <option value="dollar">[us] dollar coin</option>
+            <option value="loonie">[ca] loonies</option>
+            <option value="peso">[mx] pesos</option>
+            <option value="won">[kp] won</option> 
+            <option value="franc">[fr] franc</option>
+            <option value="bitcoin">bitcoin</option>
         </select>
     </h3>
 
@@ -48,7 +60,13 @@
             penny: 0.01,
             dime: 0.10,
             nickel: 0.05,
-            quarter: 0.25
+            quarter: 0.25,
+            dollar: 1.00,
+            loonie: 0.72,
+            peso: 0.049,
+            won: 0.00111,
+            franc: 1.12,
+            bitcoin: 96542.49
         };
 
         function tick() {
