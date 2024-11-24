@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.pink.min.css"
-    >
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     <title>Scale Visualizer</title>
     <style>
         .coin { 
@@ -21,12 +19,12 @@
 
         .output .coin { display: block; }
         .output { display: flex; flex-wrap: wrap;}
-
+        #small { opacity: .7; font-style: italic }
     </style>
 </head>
 <body>
     <img class='coin' id='penny' href='https://studentden.com/wp-content/uploads/2019/09/Penny-PNG-Clipart.png'>
-    <img class='coin' id='dime' href='https://upload.wikimedia.org/wikipedia/commons/3/3c/Dime_Obverse_13.png'>
+    <img class='coin' id='dime' href='https://upload.wikimedia.org/wikipedia/commons/3/3c/Dime_Obverse_13.png'> 
     <img class='coin' id='quarter' href='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/2006_Quarter_Proof.png/609px-2006_Quarter_Proof.png'>
     <img class='coin' id='nickel' href='https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/US_Nickel_2013_Rev.png/768px-US_Nickel_2013_Rev.png'>
     <img class='coin' id='loonie' href='https://canadiancoinnews.com/wp-content/uploads/sites/2/2019/06/loonie.png'>
@@ -35,6 +33,10 @@
     <img class='coin' id='won' href='https://www.florinus.lt/resized/94f23980cf4509dcd16d9458ec2d868c-500x500-transparent/2015-north-korea-accipiter-gentilis-20-won-silver-coin-.png'>
     <img class='coin' id='franc' href='https://upload.wikimedia.org/wikipedia/commons/3/37/20_Belgian_Franc_Leopold_II_gold_coin.png'>
     <img class='coin' id='bitcoin' href='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png'>
+    <img class='coin' id='bigmac' href='https://wallpapers.com/images/hd/big-mac-close-up-5rkpe1pbc6gkrlh7-2.jpg'>
+    <img class='coin' id='blahaj' href='https://cdna.artstation.com/p/assets/images/images/056/833/046/original/lara-hughes-blahaj-spin-compressed.gif?1670214805'>
+    <img class='coin' id='airtag' href="https://upload.wikimedia.org/wikipedia/commons/2/2d/Apple_AirTag.svg">
+    <img class='coin' id='snoobert' href='https://characterai.io/i/200/static/avatars/uploaded/2023/7/15/aYaWumWfyYbRedxvp-gKu5rE0QrfpQyExM_a5ptpcuw.webp'>
     <h3>
         I want to visualize <input class='vis' placeholder='10.00' aria-invalid='false' value='10.00'> US dollars in <select id="currency">
             <option value="penny">[us] pennies</option>
@@ -47,8 +49,13 @@
             <option value="won">[kp] won</option> 
             <option value="franc">[fr] franc</option>
             <option value="bitcoin">bitcoin</option>
+            <option value="bigmac">[mcd] big macs</option>
+            <option value='blahaj'>[ikea] blahaj</option>
+            <option value='airtag'>[apple] airtags</option>
+            <option value='snoobert'>[cat] snooberts</option>
         </select>
     </h3>
+    <p id='small'>warning: big numbers may crash the webpage | built with love by circle for hack club</p>
 
     <div class="output"></div>
 
@@ -66,7 +73,11 @@
             peso: 0.049,
             won: 0.00111,
             franc: 1.12,
-            bitcoin: 96542.49
+            bitcoin: 96542.49,
+            bigmac: 5.29,
+            blahaj: 9.99,
+            airtag: 29,
+            snoobert: 2000000,
         };
 
         function tick() {
