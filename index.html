@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Scale Visualizer</title>
     <style>
         .coin { 
@@ -32,30 +33,49 @@
     <img class='coin' id='dollar' href='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Presidential_dollar_coin_reverse.png/763px-Presidential_dollar_coin_reverse.png'>
     <img class='coin' id='won' href='https://www.florinus.lt/resized/94f23980cf4509dcd16d9458ec2d868c-500x500-transparent/2015-north-korea-accipiter-gentilis-20-won-silver-coin-.png'>
     <img class='coin' id='franc' href='https://upload.wikimedia.org/wikipedia/commons/3/37/20_Belgian_Franc_Leopold_II_gold_coin.png'>
+    <img class='coin' id='euro' href='https://upload.wikimedia.org/wikipedia/en/1/10/Common_face_of_one_euro_coin.png'>
     <img class='coin' id='bitcoin' href='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png'>
     <img class='coin' id='bigmac' href='https://wallpapers.com/images/hd/big-mac-close-up-5rkpe1pbc6gkrlh7-2.jpg'>
     <img class='coin' id='blahaj' href='https://cdna.artstation.com/p/assets/images/images/056/833/046/original/lara-hughes-blahaj-spin-compressed.gif?1670214805'>
     <img class='coin' id='airtag' href="https://upload.wikimedia.org/wikipedia/commons/2/2d/Apple_AirTag.svg">
     <img class='coin' id='snoobert' href='https://characterai.io/i/200/static/avatars/uploaded/2023/7/15/aYaWumWfyYbRedxvp-gKu5rE0QrfpQyExM_a5ptpcuw.webp'>
+    <img class='coin' id='f1' href="https://atlas-content-cdn.pixelsquid.com/stock-images/f1-car-2021-formula-1-o00M2nF-600.jpg"> 
+    <img class='coin' id='rupee' href='https://upload.wikimedia.org/wikipedia/commons/0/0f/Indian_20_Rupee_coin.png'>
+    <img class='coin' id='rubel' href='https://upload.wikimedia.org/wikipedia/commons/4/46/5_Russian_Rubles_Obverse_2016.png'>
+    <img class='coin' id='divider'>
+    <img class='coin' id='aud' href='https://i.imgur.com/vWArvYY.png'>
+    <img class='coin' id='vbuck' href='https://purepng.com/public/uploads/large/one-v-buck-dpf.png'>
+    <img class='coin' id='col' href='https://s3.amazonaws.com/ngccoin-production/Resources/Countries/costa-rica.png'>
     <h3>
         I want to visualize <input class='vis' placeholder='10.00' aria-invalid='false' value='10.00'> US dollars in <select id="currency">
             <option value="penny">[us] pennies</option>
             <option value="dime">[us] dimes</option>
             <option value="quarter">[us] quarters</option>
             <option value="nickel">[us] nickels</option>
-            <option value="dollar">[us] dollar coin</option>
-            <option value="loonie">[ca] loonies</option>
+            <option value="dollar">[us] dollar coins</option>
+            <option value="loonie">[ca] loonies</option>    
             <option value="peso">[mx] pesos</option>
-            <option value="won">[kp] won</option> 
-            <option value="franc">[fr] franc</option>
-            <option value="bitcoin">bitcoin</option>
+            <option value="won">[kp] wons</option> 
+            <option value="franc">[ch] francs</option>
+            <option value="euro">[eu] euros</option>
+            <option value="rubel">[ru] rubles</option>
+            <option value="rupee">[in] rupees</option>
+            <option value='aud'>[au] australian dollar</option>
+            <option value='col'>[cr] colons</option>
+
+            <!-- -->
+
+            <option value="divider">------</option>
+            <option value="bitcoin">[crypto] bitcoins</option>
+            <option value="vbuck">[fortnite] v-bucks</option>
             <option value="bigmac">[mcd] big macs</option>
-            <option value='blahaj'>[ikea] blahaj</option>
+            <option value='blahaj'>[ikea] blahajs'</option>
             <option value='airtag'>[apple] airtags</option>
             <option value='snoobert'>[cat] snooberts</option>
+            <option value='f1'>[f1] cars</option>
         </select>
     </h3>
-    <p id='small'>warning: big numbers may crash the webpage | built with love by circle for hack club</p>
+    <p id='small'>warning: big numbers may crash the webpage | built with <i class='bx bx-tada bxs-heart-circle'></i> by circle for hack club</p>
 
     <div class="output"></div>
 
@@ -65,19 +85,27 @@
 
         const coinValues = {
             penny: 0.01,
+            col: 0.0020,    
+            divider: 100000000000000000000000000,
             dime: 0.10,
             nickel: 0.05,
             quarter: 0.25,
             dollar: 1.00,
             loonie: 0.72,
+            aud: 0.65,
             peso: 0.049,
             won: 0.00111,
             franc: 1.12,
             bitcoin: 96542.49,
+            euro: 1.05,
             bigmac: 5.29,
             blahaj: 9.99,
+            rubel: 0.0096,
+            rupee: 0.012,
             airtag: 29,
-            snoobert: 2000000,
+            vbuck: 0.00999,
+            snoobert: 2000000000,
+            f1: 12000000,
         };
 
         function tick() {
